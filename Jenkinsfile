@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+    registry = "cr.yandex/crp3sq29v5vffjbqj8u6/demo"
+    registryCredential = ‘yc’
+}
     agent any
      stages {
         stage('Clone') {
