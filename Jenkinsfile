@@ -3,7 +3,7 @@ pipeline {
      stages {
         strage('Clone') {
             steps {
-                git url: 'https://github.com/Doc7210/project.git', branch: 'main'
+                bat "git clone https://github.com/Doc7210/project.git"
             }
         }    
         stage('Build') {
