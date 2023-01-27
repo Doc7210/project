@@ -10,6 +10,11 @@ pipeline {
             steps {
                 sh 'docker build . -t cr.yandex/crp3sq29v5vffjbqj8u6/demo:v1'
             }
-        }     
+        }
+          stage('Deploy') {
+                steps {
+                    sh 'docker push cr.yandex/crp3sq29v5vffjbqj8u6/demo:v1'
+                }
+            }
     }
  }
