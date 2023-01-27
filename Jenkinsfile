@@ -24,4 +24,5 @@ pipeline {
             echo 'build is broken'
         }
     }
+ }
 }
