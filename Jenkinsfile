@@ -19,10 +19,5 @@ pipeline {
                 sh 'docker push cr.yandex/crp3sq29v5vffjbqj8u6/demo:v1'
             }
     }
-     post {
-        failure {
-            echo 'build is broken'
-        }
-    }
  }
 }
