@@ -8,12 +8,12 @@ pipeline {
         }    
         stage('Build') {
             steps {
-                sh 'sudo docker build . -t cr.yandex/crpu9n65ua7j6t1vvn09/demo:v1'
+                sh 'docker build . -t cr.yandex/crpu9n65ua7j6t1vvn09/demo:v1'
             }
         }
           stage('Deploy') {
                 steps {
-                    sh 'sudo docker push cr.yandex/crpu9n65ua7j6t1vvn09/demo:v1'
+                    sh 'docker push cr.yandex/crpu9n65ua7j6t1vvn09/demo:v1'
                 }
             }
     }
