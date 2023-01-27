@@ -12,15 +12,20 @@ pipeline {
         }    
         stage('Build') {
             steps {
-                sh 'docker build . -t cr.yandex/crpu9n65ua7j6t1vvn09/demo:v1'
+                script {
+                  dockerImage = docker.build registry + ":v1"
+                }
+               
             }
         }
-          stage('Deploy') {
-                steps {
-                    script {
-                      docker.build registry + ":v1"
-                    }
+        stage('Deploy Image') {
+            steps{
+              script {
+                docker.withRegistry( '', registryCredential ) {
+                  dockerImage.push()
                 }
+              }
             }
+        }
     }
  }
