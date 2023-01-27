@@ -17,7 +17,9 @@ pipeline {
         }
           stage('Deploy') {
                 steps {
-                    docker.build registry + ":v1"
+                    script {
+                      docker.build registry + ":v1"
+                    }
                 }
             }
     }
