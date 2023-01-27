@@ -1,7 +1,7 @@
 pipeline {
     agent any
      stages {
-        strage('Clone') {
+        stage('Clone') {
             steps {
                 bat "git clone https://github.com/Doc7210/project.git"
             }
