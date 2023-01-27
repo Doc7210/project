@@ -17,7 +17,7 @@ pipeline {
         }
           stage('Deploy') {
                 steps {
-                    sh 'docker push cr.yandex/crpu9n65ua7j6t1vvn09/demo:v1'
+                    docker.build registry + ":v1"
                 }
             }
     }
