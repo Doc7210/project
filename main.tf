@@ -23,9 +23,6 @@ provider "yandex" {
 }
 
 resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
-  name           = local.subnet_name
-  zone           = local.zone
-  v4_cidr_blocks = ["192.168.1.0/24"]
   network_id     = "enpa4oqvb6e4emoq2p8i"
 
 }
