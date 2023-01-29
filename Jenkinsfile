@@ -11,12 +11,12 @@ pipeline {
         }  
         stage('Init') {
             steps {
-                sh "terraform init -input=false"
+                sh "terraform init"
             }
          }    
         stage('Apply') {
             steps {
-                sh "terraform apply -input=false tfplan"
+                sh "terraform apply --auto-approve"
             }
         }
     }
