@@ -4,11 +4,6 @@ pipeline {
            terraform 'terraform'
      }
      stages {
-        stage('Clone') {
-            steps {
-                sh "git clone https://github.com/Doc7210/project.git"
-            }
-        }
         stage('Init') {
             steps {
                 sh "terraform init"
