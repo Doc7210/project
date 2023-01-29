@@ -14,7 +14,7 @@ pipeline {
         }   
         stage('Build') {
             steps {
-                sh 'docker build . -t doc7210/tms:{env.BUILD_ID}'
+                sh 'docker build . -t doc7210/tms:$BUILD_NUMBER'
             }
         }
         stage('Login') {
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker push doc7210/tms:{env.BUILD_ID}'
+                sh 'docker push doc7210/tms:$BUILD_NUMBER'
             }
         } 
         stage('Init') {
