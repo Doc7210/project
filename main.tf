@@ -22,15 +22,11 @@ provider "yandex" {
   zone = "ru-central1-a"
 }
 
-resource "yandex_vpc_network" "docker-vm-network" {
-  name = local.network_name
-}
-
 resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
-  name           = local.subnet_name
+  name_id        = "e9b2a6bb1007l48gsiml"
   zone           = local.zone
   v4_cidr_blocks = ["192.168.1.0/24"]
-  network_id     = yandex_vpc_network.docker-vm-network.id
+  network_id     = "enpg74gl9vv2o9n9bjqi"
 }
 
 data "yandex_compute_image" "container-optimized-image" {
