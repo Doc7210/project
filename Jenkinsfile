@@ -8,7 +8,22 @@ pipeline {
             steps {
                 git url: 'https://github.com/Doc7210/project.git', branch: 'main'
             }
-        }    
+        }   
+        stage('Build') {
+            steps {
+                sh 'docker build . -t doc7210/tms:v2'
+            }
+        }
+        stage('Login') {
+                steps {
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'docker push doc7210/tms:v2'
+            }
+        } 
         stage('Init') {
             steps {
                 sh "terraform init"
