@@ -14,7 +14,7 @@ pipeline {
         }   
         stage('Build') {
             steps {
-                sh 'docker build . -t doc7210/tms:$BUILD_NUMBER'
+                sh 'docker build . -t doc7210/tms:v5'
             }
         }
         stage('Login') {
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker push doc7210/tms:$BUILD_NUMBER'
+                sh 'docker push doc7210/tms:v5'
             }
         } 
         stage('Init') {
