@@ -8,7 +8,12 @@ pipeline {
             steps {
                 sh "git clone https://github.com/Doc7210/project.git"
             }
-        }    
+        }  
+        stage('Init') {
+            steps {
+                sh "terraform init -input=false"
+            }
+         }    
         stage('Apply') {
             steps {
                 sh "terraform apply -input=false tfplan"
