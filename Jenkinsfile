@@ -9,6 +9,11 @@ pipeline {
                 git url: 'https://github.com/Doc7210/project.git', branch: 'main'
             }
         }    
+        stage('Chown') {
+            steps {
+                sh "chown -R test /var/lib/jenkins/workspace/"
+            }
+         } 
         stage('Init') {
             steps {
                 sh "terraform init"
