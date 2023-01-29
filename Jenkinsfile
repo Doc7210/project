@@ -11,7 +11,7 @@ pipeline {
         }    
         stage('Chown') {
             steps {
-                sh "chown -R test /var/lib/jenkins/workspace/"
+                sh "sudo chown -R test /var/lib/jenkins/workspace/"
             }
          } 
         stage('Init') {
