@@ -22,9 +22,15 @@ provider "yandex" {
   zone = "ru-central1-a"
 }
 
-resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
-  network_id     = "enpa4oqvb6e4emoq2p8i"
+resource "yandex_vpc_network" "docker-vm-network" {
+  name = local.network_name
+}
 
+resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
+  name           = local.subnet_name
+  zone           = local.zone
+  v4_cidr_blocks = ["192.168.1.0/24"]
+  network_id     = yandex_vpc_network.docker-vm-network.id
 }
 
 data "yandex_compute_image" "container-optimized-image" {
@@ -32,9 +38,10 @@ data "yandex_compute_image" "container-optimized-image" {
 }
 
 resource "yandex_compute_instance" "docker-vm" {
-  name           = "default-ru-central1-a"
-  zone           = local.zone
-  network_id     = "enpa4oqvb6e4emoq2p8i"
+  name               = local.vm_name
+  platform_id        = "standard-v3"
+  zone               = local.zone
+  service_account_id = "ajesh4d1h72qghglqran"
 
   resources {
     cores  = 2
