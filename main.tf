@@ -32,10 +32,9 @@ data "yandex_compute_image" "container-optimized-image" {
 }
 
 resource "yandex_compute_instance" "docker-vm" {
-  name               = local.vm_name
-  platform_id        = "standard-v3"
-  zone               = local.zone
-  service_account_id = "ajesh4d1h72qghglqran"
+  name           = "default-ru-central1-a"
+  zone           = local.zone
+  network_id     = "enpa4oqvb6e4emoq2p8i"
 
   resources {
     cores  = 2
