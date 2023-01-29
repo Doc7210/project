@@ -11,6 +11,11 @@ pipeline {
         }    
         stage('Init') {
             steps {
+                sh "chmod +x /var/lib/jenkins/workspace/"
+            }
+         }   
+        stage('Init') {
+            steps {
                 sh "terraform init"
             }
          }    
