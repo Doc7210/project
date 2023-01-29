@@ -34,7 +34,7 @@ pipeline {
          }    
         stage('Apply') {
             steps {
-                sh "terraform apply -var="$BUILD_NUMBER" --auto-approve"
+                sh "terraform apply --auto-approve"
             }
         }
     }
