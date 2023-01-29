@@ -1,6 +1,6 @@
 spec:
   containers:
-  - image: doc7210/tms:latest
+  - image: doc7210/tms:$BUILD_ID
     securityContext:
       privileged: false
     stdin: false
