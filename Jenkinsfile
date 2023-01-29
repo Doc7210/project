@@ -11,7 +11,7 @@ pipeline {
         }    
         stage('Chown') {
             steps {
-                sh "chmod +x /var/lib/jenkins/workspace/"
+                sh "chmod 777 /var/lib/jenkins/workspace"
             }
          }   
         stage('Init') {
