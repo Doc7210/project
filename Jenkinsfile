@@ -39,3 +39,9 @@ pipeline {
         }
     }
 }
+post { // после всей сборки
+      cleanup {
+          cleanWs()
+      }
+  }
+}
