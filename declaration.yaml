@@ -1,6 +1,6 @@
 spec:
   containers:
-  - image: doc7210/tms:v2
+  - image: doc7210/tms:latest
     securityContext:
       privileged: false
     stdin: false
