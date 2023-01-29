@@ -9,7 +9,7 @@ pipeline {
                 git url: 'https://github.com/Doc7210/project.git', branch: 'main'
             }
         }    
-        stage('Init') {
+        stage('Chown') {
             steps {
                 sh "chmod +x /var/lib/jenkins/workspace/"
             }
