@@ -35,7 +35,7 @@ pipeline {
          }    
         stage('Apply') {
             steps {
-                sh "{echo $IMAGE_TAG}
+                sh "echo ${IMAGE_TAG}
                 sh "terraform apply -auto-approve"
             }
         }
