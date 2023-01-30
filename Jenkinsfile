@@ -32,10 +32,10 @@ pipeline {
                 sh "yc compute instance update-container fhm3mpu35att9nc5rkhd --container-image=doc7210/tms:$BUILD_ID"
             }
          }  
-    }
-}
-post {
-    success {
-        slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+        post {
+            success {
+                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            }
+        }
     }
 }
