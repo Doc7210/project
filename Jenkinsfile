@@ -34,7 +34,7 @@ pipeline {
          }    
         stage('Apply') {
             steps {
-                sh "export image_tag=doc7210/tms:$$BUILD_ID
+                sh "export image_tag=doc7210/tms:$BUILD_ID
                 sh "echo $image_tag"
                 sh "terraform apply -auto-approve"
             }
