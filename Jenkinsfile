@@ -35,9 +35,7 @@ pipeline {
     }
         post {
             success {
-                slackSend channel: '#ops',
-                          color: 'good',
-                          message: "The pipeline completed successfully."
+                slackSend "Build deployed successfully"
             }
         }
 }
