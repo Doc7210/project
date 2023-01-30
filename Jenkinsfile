@@ -33,8 +33,10 @@ pipeline {
             }
         }  
         post {
-            success {
-                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            failure {
+                mail to: 'milano7210@gmail.com',
+                     subject: "Failed Pipeline",
+                     body: "Something"
             }
         }
     }
