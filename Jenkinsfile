@@ -32,6 +32,7 @@ pipeline {
                 sh "yc compute instance update-container fhm3mpu35att9nc5rkhd --container-image=doc7210/tms:$BUILD_ID"
             }
         }  
+    }
         post {
             failure {
                 mail to: 'milano7210@gmail.com',
@@ -39,5 +40,4 @@ pipeline {
                      body: "Something"
             }
         }
-    }
 }
