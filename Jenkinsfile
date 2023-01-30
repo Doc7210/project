@@ -35,7 +35,7 @@ pipeline {
     }
         post {
             success {
-              slackSend (message: "SUCCESSFUL")
+              slackSend "Build deployed successfully"
             }
         }
 }
