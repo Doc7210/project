@@ -35,7 +35,7 @@ pipeline {
     }
         post {
             always {
-              slackSend(color: "good", message: "Test Email")
+              slackSend(color: "good", message: "Build deployed successfully")
             }
         }
 }
