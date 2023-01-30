@@ -14,7 +14,7 @@ pipeline {
         }   
         stage('Build') {
             steps {
-                sh 'docker build . -t doc7210/tms:v5'
+                sh 'docker build . -t doc7210/tms:$BUILD_ID'
             }
         }
         stage('Login') {
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker push doc7210/tms:v5'
+                sh 'docker push doc7210/tms:$BUILD_ID'
             }
         } 
         stage('Init') {
@@ -34,6 +34,8 @@ pipeline {
          }    
         stage('Apply') {
             steps {
+                sh "export image_tag=doc7210/tms:$$BUILD_ID
+                sh "echo $image_tag"
                 sh "terraform apply -auto-approve"
             }
         }
