@@ -1,6 +1,7 @@
 pipeline {
     environment {
     DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred')
+    IMAGE_TAG="$BUILD_ID"
   }
     agent any
     tools {
@@ -34,8 +35,7 @@ pipeline {
          }    
         stage('Apply') {
             steps {
-                sh "export image_tag=doc7210/tms:$BUILD_ID
-                sh "echo $image_tag"
+                sh "{echo $IMAGE_TAG}
                 sh "terraform apply -auto-approve"
             }
         }
