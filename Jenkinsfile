@@ -33,11 +33,4 @@ pipeline {
             }
         }  
     }
-         post {
-             success {
-                    sh  ("""
-                    curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='Good'
-                """)
-             }
-         }
 }
