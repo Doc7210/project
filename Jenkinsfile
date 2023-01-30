@@ -1,7 +1,6 @@
 pipeline {
     environment {
     DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred')
-    IMAGE_TAG="$BUILD_ID"
   }
     agent any
     tools {
@@ -28,16 +27,10 @@ pipeline {
                 sh 'docker push doc7210/tms:$BUILD_ID'
             }
         } 
-        stage('Init') {
+        stage('Update') {
             steps {
-                sh "terraform init"
+                sh "yc compute instance update-container fhm3mpu35att9nc5rkhd \ +--container-image=doc7210/tms:$BUILD_ID"
             }
-         }    
-        stage('Apply') {
-            steps {
-                echo $IMAGE_TAG
-                sh "terraform apply -auto-approve"
-            }
-        }
+         }  
     }
 }
