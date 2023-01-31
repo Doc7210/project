@@ -30,7 +30,13 @@
   - Ansible
 • CI/CD реализован в Jenkins.
   -Jenkinsfile
-• ониторинг:
+• Мониторинг:
   - Prometheus
   - Node exporter
   - Grafana 
+• Оповещение:
+ - Slack
+```
+
+Итог работы можно просмотреть здесь:
+- **[Web-app]([https://tighten.co](http://62.84.117.109/))**
