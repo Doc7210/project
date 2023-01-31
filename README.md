@@ -3,7 +3,7 @@
 
 ```
 В данном проекте реализовано:
-=============================
+
 • выбран общедоступный репозиторий или несколько репозиториев с исходным кодом приложения, состоящего из одного или нескольких микросервисов;
 • выполнен fork или сделана копия репозитория;
 • автоматизировано создание инфраструктуры для развертывания проекта;
@@ -11,26 +11,26 @@
 • настроен мониторинг инфраструктуры и приложения.
 
 В качестве инструментов использованы:
-=============================
-•	Развертывание инфраструктуры: Terraform, Yandex Cloud, Ansible, Docker;
-•	CI/CD: Jenkins;
-•	Оповещение: Slack;
-•	Мониторинг: Prometheus, Grafana;
+
+• Развертывание инфраструктуры: Terraform, Yandex Cloud, Ansible, Docker;
+• CI/CD: Jenkins;
+• Оповещение: Slack;
+• Мониторинг: Prometheus, Grafana;
 
 Этапы сборки проекта:
-=============================
-•	Провайдером был выбран Yandex Cloud
-    - Container Registry
-    - Compute Cloud
-    - Virtual Private Cloud
-•	Контейнерзация приложения в Docker
-    - hub.docker.com
-•	Для создания облачной инфрастуктуры в YC использован Terraform.
-    - Terraform
-    - Ansible
-•	CI/CD реализован в Jenkins.
-    -Jenkinsfile
-•	Мониторинг:
-    - Prometheus
-    - Node exporter
-    - Grafana 
+
+• Провайдером был выбран Yandex Cloud
+  - Container Registry
+  - Compute Cloud
+  - Virtual Private Cloud
+• Контейнерзация приложения в Docker
+  - hub.docker.com
+• Для создания облачной инфрастуктуры в YC использован Terraform.
+  - Terraform
+  - Ansible
+• CI/CD реализован в Jenkins.
+  -Jenkinsfile
+• ониторинг:
+  - Prometheus
+  - Node exporter
+  - Grafana 
