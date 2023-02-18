@@ -29,7 +29,7 @@ pipeline {
         } 
         stage('Update') {
             steps {
-                sh "yc compute instance update-container crp2kahcaklru9oas4ds --container-image=doc7210/tms:$BUILD_ID"
+                sh "yc compute instance update-container fhmtvobloih3bce1fqqf --container-image=doc7210/tms:$BUILD_ID"
             }
         }  
     }
