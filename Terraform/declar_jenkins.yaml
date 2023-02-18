@@ -1,0 +1,6 @@
+spec:
+  containers:
+  - image: cr.yandex/crpj3pj62mu9i1omkqv0/one:v1
+    securityContext:
+      privileged: false
+    stdin: false
