@@ -1,10 +1,6 @@
 pipeline {
     environment {
     DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred')
-  }
-    agent any
-    tools {
-           terraform 'terraform'
      }
      stages {
         stage('Clone') {
