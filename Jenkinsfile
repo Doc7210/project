@@ -34,8 +34,11 @@ pipeline {
         }  
     }
         post {
-            always {
+            success {
               slackSend(color: "good", message: "Build deployed successfully")
-            }
+             }
+            failure {
+              slackSend(color: "good", message: "Build Deployment Error")
+             }
         }
 }
