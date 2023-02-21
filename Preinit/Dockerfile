@@ -12,4 +12,3 @@ COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 COPY ./jenkins2.sh /usr/local/bin/jenkins2.sh
 ENTRYPOINT ["/usr/local/bin/jenkins2.sh"]
-
