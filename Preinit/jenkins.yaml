@@ -1,0 +1,63 @@
+jenkins:
+  systemMessage: "See also: https://github.com/Doc7210"
+  numExecutors: 4
+  scmCheckoutRetryCount: 2
+  mode: NORMAL
+  quietPeriod: 5
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
+  primaryView:
+    all:
+      name: "all"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: "jenkinsGitRepo"
+        value: "https://github.com/Doc7210/project.git"
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              scope: GLOBAL
+              id: slack-token
+              secret: '${SLACK_TOKEN}'
+              description: Slack token
+unclassified:
+  slackNotifier:
+    teamDomain: myprojcect
+    tokenCredentialId: slack-token
+  location:
+    url: "http://localhost:8080/"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "main"
+      implicit: true
+      name: "web_app"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              remote: "https://github.com/Doc7210/project.git"
+              traits:
+              - cloneOptionTrait:
+                  extension:
+                    depth: 1
+                    noTags: true
+jobs:
+  - job:
+    name: web_app
+    project-type: pipeline
+    pipeline:
+      script-path: Jenkinsfile 
+      scm: 
+        - git:
+            branches:
+              - '*/main'
+            url: 'https://github.com/Doc7210/project.git'
+            skip-tag: true
+            wipe-workspace: false
