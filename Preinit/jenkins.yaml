@@ -18,6 +18,16 @@ jenkins:
       env:
       - key: "jenkinsGitRepo"
         value: "https://github.com/Doc7210/project.git"
+authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Jenkins administrators with full permissions"
+            permissions:
+              - "Overall/Administer"
+            assignments:
+              - "admin"
 credentials:
   system:
     domainCredentials:
